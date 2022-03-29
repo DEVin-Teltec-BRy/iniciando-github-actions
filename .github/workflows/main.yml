@@ -9,4 +9,7 @@ jobs:
     steps:
       - name: Versão ubuntu
         run: lsb_release -a
+      
+      - name: Versão node
+        run: node --version
     
