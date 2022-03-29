@@ -6,11 +6,10 @@ jobs:
   ubuntu:
     runs-on: ubuntu-latest
     steps:
-      - name: Versão ubuntu
-        run: lsb_release -a
-      
-      - name: Versão node
-        run: node --version
+      - name: Versão ubuntu e node
+        run: |
+          lsb_release -a
+          node --version
       
       - name: O que tem neste diretório ?
         run: ls -lrt
@@ -18,8 +17,5 @@ jobs:
   windows:
     runs-on: windows-latest
     steps:
-      - name: Verificar versão do Windows
-        run: systeminfo
-      
       - name: O que tem neste diretório ?
         run: dir
