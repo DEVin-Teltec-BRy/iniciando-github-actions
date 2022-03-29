@@ -6,16 +6,21 @@ jobs:
   ubuntu:
     runs-on: ubuntu-latest
     steps:
-      - name: Versão ubuntu e node
-        run: |
-          lsb_release -a
-          node --version
+      - name: Checkout
+        uses: actions/checkout@v3.0.0
       
       - name: O que tem neste diretório ?
-        run: ls -lrt
+        run: | 
+          ls -lrt
+          cat README.md
   
   windows:
     runs-on: windows-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3.0.0
+        
       - name: O que tem neste diretório ?
-        run: dir
+        run: |
+          dir
+          Get-Content README.md
