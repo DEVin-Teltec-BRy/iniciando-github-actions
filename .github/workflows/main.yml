@@ -19,7 +19,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Verificar versão do Windows
-        run: ver
+        run: systeminfo
       
       - name: O que tem neste diretório ?
         run: dir
