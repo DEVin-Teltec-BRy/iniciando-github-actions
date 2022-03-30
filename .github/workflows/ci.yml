@@ -1,4 +1,6 @@
 name: CI
+env: 
+  url: 'http://devinhouse.com'
 
 on:
   push:
@@ -30,13 +32,8 @@ jobs:
       name: dev
     steps:
       - name: Deploy em dev
-        run: echo Deploy em dev
-      - name: Docker Login
-        uses: docker/login-action@v1.14.1
-        with:
-          username: danilosales
-          password: ${{secrets.URL_BD}}
-    
+        run: echo Deploy em dev ${{secrets.URL_BD}} - ${{env.url}}
+        
   deployqa:
     needs: build
     runs-on: ubuntu-latest
