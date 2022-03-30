@@ -37,6 +37,8 @@ jobs:
   deployqa:
     needs: build
     runs-on: ubuntu-latest
+    environment: 
+      name: qa
     steps:
       - name: Deploy em qa
         run: echo Deploy em qa
@@ -44,6 +46,8 @@ jobs:
   deployprod:
     needs: [deployqa, deploydev]
     runs-on: ubuntu-latest
+    environment: 
+      name: prod
     steps:
       - name: Deploy em prod
         run: echo Deploy em prod        
