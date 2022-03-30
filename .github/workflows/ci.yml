@@ -26,9 +26,11 @@ jobs:
   deploydev:
     needs: build
     runs-on: ubuntu-latest
+    environment: 
+      name: dev
     steps:
       - name: Deploy em dev
-        run: echo Deploy em dev
+        run: echo Deploy em dev ${{env.URL_BD}}
     
   deployqa:
     needs: build
