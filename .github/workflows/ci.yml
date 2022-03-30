@@ -7,6 +7,9 @@ on:
       - '**/*.md'
   pull_request:
       branches: [main]
+  
+  workflow_dispatch:
+    
 
 jobs:
   build:
@@ -14,9 +17,29 @@ jobs:
     steps:
       - uses: actions/checkout@v3.0.0
       
-      - name: Run hello world
+      - name: Build
         run: echo Hello World!
       
       - name: Rodar testes
         run: echo Rodar testes
         
+  deploydev:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy em dev
+        run: echo Deploy em dev
+    
+  deployqa:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy em qa
+        run: echo Deploy em qa
+
+  deployprod:
+    needs: [deployqa, deploydev]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy em prod
+        run: echo Deploy em prod        
